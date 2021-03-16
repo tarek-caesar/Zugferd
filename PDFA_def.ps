@@ -1,0 +1,159 @@
+%!
+% This is a sample prefix file for creating a PDF/A document.
+% Users should modify entries marked with "Customize".
+% This assumes an ICC profile resides in the file (srgb.icc),
+% in the current directory unless the user modifies the corresponding line below.
+
+% Define entries in the document Info dictionary :
+[ /Title (Title)       % Customise
+  /DOCINFO pdfmark
+
+% Define an ICC profile :
+/ICCProfile (sRGB.icc) % Customise
+def
+
+[/_objdef {icc_PDFA} /type /stream /OBJ pdfmark
+
+%% This code attempts to set the /N (number of components) key for the ICC colour space.
+%% To do this it checks the ColorConversionStrategy or the device ProcessColorModel if
+%% ColorConversionStrategy is not set.
+%% This is not 100% reliable. A better solution is for the user to edit this and replace
+%% the code between the ---8<--- lines with a simple declaration like:
+%%   /N 3
+%% where the value of N is the number of components from the profile defined in /ICCProfile above.
+%%
+[{icc_PDFA}
+<<
+%% ----------8<--------------8<-------------8<--------------8<----------
+  systemdict /ColorConversionStrategy known {
+    systemdict /ColorConversionStrategy get cvn dup /Gray eq {
+      pop /N 1 false
+    }{
+      dup /RGB eq {
+        pop /N 3 false
+      }{
+        /CMYK eq {
+          /N 4 false
+        }{
+          (ColorConversionStrategy not a device space, falling back to ProcessColorModel, output may not be valid PDF/A.)=
+          true
+        } ifelse
+      } ifelse
+    } ifelse
+  } {
+    (ColorConversionStrategy not set, falling back to ProcessColorModel, output may not be valid PDF/A.)=
+    true
+  } ifelse
+
+  {
+    currentpagedevice /ProcessColorModel get
+    dup /DeviceGray eq {
+      pop /N 1
+    }{
+      dup /DeviceRGB eq {
+        pop /N 3
+      }{
+        dup /DeviceCMYK eq {
+          pop /N 4
+        } {
+          (ProcessColorModel not a device space.)=
+          /ProcessColorModel cvx /rangecheck signalerror
+        } ifelse
+      } ifelse
+    } ifelse
+  } if
+%% ----------8<--------------8<-------------8<--------------8<----------
+
+>> /PUT pdfmark
+[{icc_PDFA} ICCProfile (r) file /PUT pdfmark
+
+% Define the output intent dictionary :
+
+[/_objdef {OutputIntent_PDFA} /type /dict /OBJ pdfmark
+[{OutputIntent_PDFA} <<
+  /Type /OutputIntent               % Must be so (the standard requires).
+  /S /GTS_PDFA1                     % Must be so (the standard requires).
+  /DestOutputProfile {icc_PDFA}     % Must be so (see above).
+  /OutputConditionIdentifier (sRGB) % Customize
+>> /PUT pdfmark
+[{Catalog} <</OutputIntents [ {OutputIntent_PDFA} ]>> /PUT pdfmark
+
+[ /_objdef {InvoiceStream} /type /stream /OBJ pdfmark
+[ {InvoiceStream} << /Type /EmbeddedFile /Subtype (text/xml) cvn /Params << /ModDate (D:20130121081433+01’00’) >> >> /PUT pdfmark 
+[ {InvoiceStream} (ZUGFeRD-invoice.xml) (r) file /PUT pdfmark
+[ {InvoiceStream} /CLOSE pdfmark
+[ /_objdef {Invoice_FSDict} /type /dict /OBJ pdfmark
+[ {Invoice_FSDict} << /Type /FileSpec /F (ZUGFeRD-invoice.xml) /UF (ZUGFeRD-invoice.xml) /Desc (ZUGFeRD XML invoice) /AFRelationship /Alternative /EF << /F {InvoiceStream} /UF {InvoiceStream} >> >> /PUT pdfmark
+[ /_objdef {AFArray} /type /array /OBJ pdfmark
+[ {AFArray} {FSDict} /APPEND pdfmark
+[ {Catalog} << /AF {AFArray} >> /PUT pdfmark
+[ /Name (ZUGFeRD-invoice.xml) /FS {FSDict} /EMBED pdfmark
+[
+/XML
+(
+<!-- XMP extension schema container for the zugferd schema -->
+<rdf:Description rdf:about=""
+xmlns:pdfaExtension="http://www.aiim.org/pdfa/ns/extension/"
+xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#"
+xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#">
+
+<!-- Container for all embedded extension schema descriptions -->
+<pdfaExtension:schemas>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+<!-- Optional description of schema -->
+<pdfaSchema:schema>ZUGFeRD PDFA Extension Schema</pdfaSchema:schema>
+<!-- Schema namespace URI -->
+<pdfaSchema:namespaceURI>urn:ferd:pdfa:invoice:rc#</pdfaSchema:namespaceURI>
+<!-- Preferred schema namespace prefix -->
+<pdfaSchema:prefix>zf</pdfaSchema:prefix>
+
+<!-- Description of schema properties -->
+<pdfaSchema:property>
+<rdf:Seq>!
+<rdf:li rdf:parseType="Resource">
+
+<!-- DocumentFileName: Name of the embedded file; must be equal with the value of the /F tag in the /EF structure -->
+<pdfaProperty:name>DocumentFileName</pdfaProperty:name>
+<pdfaProperty:valueType>Text</pdfaProperty:valueType>
+<pdfaProperty:category>external</pdfaProperty:category>
+<pdfaProperty:description>name of the embedded xml invoice file</pdfaProperty:description>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+
+<!-- DocumentType: INVOICE -->
+<pdfaProperty:name>DocumentType</pdfaProperty:name>
+<pdfaProperty:valueType>Text</pdfaProperty:valueType>
+<pdfaProperty:category>external</pdfaProperty:category>
+<pdfaProperty:description>INVOICE</pdfaProperty:description>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+
+<!-- Version: The actual version of the ZUGFeRD standard -->
+<pdfaProperty:name>Version</pdfaProperty:name>
+<pdfaProperty:valueType>Text</pdfaProperty:valueType>
+<pdfaProperty:category>external</pdfaProperty:category>
+<pdfaProperty:description>The actual version of the ZUGFeRD data</pdfaProperty:description>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+
+<!-- ConformanceLevel: The actual conformance level of the ZUGFeRD standard, e.g. BASIC, COMFORT, EXTENDED -->
+<pdfaProperty:name>ConformanceLevel</pdfaProperty:name>
+<pdfaProperty:valueType>Text</pdfaProperty:valueType>
+<pdfaProperty:category>external</pdfaProperty:category>
+<pdfaProperty:description>The conformance level of the ZUGFeRD data</pdfaProperty:description>
+</rdf:li>
+</rdf:Seq>
+</pdfaSchema:property>
+</rdf:li>
+</rdf:Bag> </pdfaExtension:schemas>
+</rdf:Description>
+
+<rdf:Description rdf:about="" xmlns:zf="urn:ferd:pdfa:invoice:rc#">
+<zf:DocumentType>INVOICE</zf:DocumentType>
+<zf:DocumentFileName>ZUGFeRD-invoice.xml</zf:DocumentFileName>
+<zf:Version>RC</zf:Version>
+<zf:ConformanceLevel>BASIC</zf:ConformanceLevel>
+</rdf:Description>
+)
+/Ext_Metadata pdfmark

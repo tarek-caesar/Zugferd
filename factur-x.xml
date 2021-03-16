@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+            
+            <rsm:CrossIndustryInvoice xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100" xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100">
+                <rsm:ExchangedDocumentContext>
+                    <ram:GuidelineSpecifiedDocumentContextParameter>
+                        <ram:ID>urn:cen.eu:en16931:2017</ram:ID>
+                    </ram:GuidelineSpecifiedDocumentContextParameter>
+                </rsm:ExchangedDocumentContext>
+
+                <rsm:ExchangedDocument>
+                    
+                    <ram:TypeCode>380</ram:TypeCode>
+                    <ram:IssueDateTime>
+                        <udt:DateTimeString format="102">20210316</udt:DateTimeString>
+                    </ram:IssueDateTime>
+                    
+                </rsm:ExchangedDocument>
+
+                <rsm:SupplyChainTradeTransaction>
+                    
+                        
+            
+            
+                <ram:IncludedSupplyChainTradeLineItem>
+                    <ram:AssociatedDocumentLineDocument>
+                        <ram:LineID>1</ram:LineID>
+                    </ram:AssociatedDocumentLineDocument>
+
+                    <ram:SpecifiedTradeProduct>
+                        
+                        
+                        <ram:Name>Anzahlung von 19.0%</ram:Name>
+                    </ram:SpecifiedTradeProduct>
+
+                    <ram:SpecifiedLineTradeAgreement>
+                        <ram:GrossPriceProductTradePrice>
+                            <ram:ChargeAmount currencyID="EUR">142.50</ram:ChargeAmount>
+
+                            
+                        </ram:GrossPriceProductTradePrice>
+                    </ram:SpecifiedLineTradeAgreement>
+
+                    <ram:SpecifiedLineTradeDelivery>
+                        <ram:BilledQuantity>1.0</ram:BilledQuantity>
+                    </ram:SpecifiedLineTradeDelivery>
+
+                    <ram:SpecifiedLineTradeSettlement>
+                        
+                            
+                            <ram:ApplicableTradeTax>
+                                <ram:RateApplicablePercent>19.0</ram:RateApplicablePercent>
+                            </ram:ApplicableTradeTax>
+                        
+                        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+                            <ram:LineTotalAmount currencyID="EUR">142.50</ram:LineTotalAmount>
+                        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+                    </ram:SpecifiedLineTradeSettlement>
+
+                </ram:IncludedSupplyChainTradeLineItem>
+            
+        
+                    
+
+                    <ram:ApplicableHeaderTradeAgreement>
+                        <ram:SellerTradeParty>
+                            
+            
+                <ram:Name>YourCompany</ram:Name>
+                <ram:DefinedTradeContact>
+                    <ram:PersonName>YourCompany</ram:PersonName>
+                    <ram:TelephoneUniversalCommunication>
+                        <ram:CompleteNumber>+1 (650) 691-3277 </ram:CompleteNumber>
+                    </ram:TelephoneUniversalCommunication>
+                    <ram:EmailURIUniversalCommunication>
+                        <ram:URIID schemeID="SMTP">info@yourcompany.example.com</ram:URIID>
+                    </ram:EmailURIUniversalCommunication>
+                </ram:DefinedTradeContact>
+
+                <ram:PostalTradeAddress>
+                    <ram:PostcodeCode>94134</ram:PostcodeCode>
+                    <ram:LineOne>250 Executive Park Blvd, Suite 3400</ram:LineOne>
+                    
+                    <ram:CityName>San Francisco</ram:CityName>
+                    <ram:CountryID>DE</ram:CountryID>
+                </ram:PostalTradeAddress>
+            
+        
+
+                            
+                        </ram:SellerTradeParty>
+
+                        <ram:BuyerTradeParty>
+                            
+            
+                <ram:Name>Lumber Inc</ram:Name>
+                <ram:DefinedTradeContact>
+                    <ram:PersonName>Lumber Inc</ram:PersonName>
+                    <ram:TelephoneUniversalCommunication>
+                        <ram:CompleteNumber>(828)-316-0593</ram:CompleteNumber>
+                    </ram:TelephoneUniversalCommunication>
+                    <ram:EmailURIUniversalCommunication>
+                        <ram:URIID schemeID="SMTP">lumber-inv92@example.com</ram:URIID>
+                    </ram:EmailURIUniversalCommunication>
+                </ram:DefinedTradeContact>
+
+                <ram:PostalTradeAddress>
+                    <ram:PostcodeCode>95202</ram:PostcodeCode>
+                    <ram:LineOne>1337 N San Joaquin St</ram:LineOne>
+                    
+                    <ram:CityName>Stockton</ram:CityName>
+                    <ram:CountryID>US</ram:CountryID>
+                </ram:PostalTradeAddress>
+            
+        
+
+                            
+                        </ram:BuyerTradeParty>
+
+                        <ram:BuyerOrderReferencedDocument>
+                            <ram:IssuerAssignedID>RE.:/2021/0002: RE.:/2021/0002</ram:IssuerAssignedID>
+                        </ram:BuyerOrderReferencedDocument>
+                    </ram:ApplicableHeaderTradeAgreement>
+
+                    <ram:ApplicableHeaderTradeDelivery>
+                        <ram:ShipToTradeParty>
+                            
+            
+                <ram:Name>Lumber Inc</ram:Name>
+                <ram:DefinedTradeContact>
+                    <ram:PersonName>Lumber Inc</ram:PersonName>
+                    <ram:TelephoneUniversalCommunication>
+                        <ram:CompleteNumber>(828)-316-0593</ram:CompleteNumber>
+                    </ram:TelephoneUniversalCommunication>
+                    <ram:EmailURIUniversalCommunication>
+                        <ram:URIID schemeID="SMTP">lumber-inv92@example.com</ram:URIID>
+                    </ram:EmailURIUniversalCommunication>
+                </ram:DefinedTradeContact>
+
+                <ram:PostalTradeAddress>
+                    <ram:PostcodeCode>95202</ram:PostcodeCode>
+                    <ram:LineOne>1337 N San Joaquin St</ram:LineOne>
+                    
+                    <ram:CityName>Stockton</ram:CityName>
+                    <ram:CountryID>US</ram:CountryID>
+                </ram:PostalTradeAddress>
+            
+        
+                        </ram:ShipToTradeParty>
+                    </ram:ApplicableHeaderTradeDelivery>
+
+                    <ram:ApplicableHeaderTradeSettlement>
+
+                        <ram:SpecifiedTradeSettlementPaymentMeans>
+                            <ram:PayeePartyCreditorFinancialAccount>
+                                <ram:IBANID>FR7642424242424242424242424</ram:IBANID>
+                            </ram:PayeePartyCreditorFinancialAccount>
+                        </ram:SpecifiedTradeSettlementPaymentMeans>
+
+                        
+                            
+                            <ram:ApplicableTradeTax>
+                                <ram:CalculatedAmount currencyID="EUR">27.08</ram:CalculatedAmount>
+                                <ram:BasisAmount currencyID="EUR">142.50</ram:BasisAmount>
+                                <ram:RateApplicablePercent>19.0</ram:RateApplicablePercent>
+                            </ram:ApplicableTradeTax>
+                        
+
+                        <ram:SpecifiedTradePaymentTerms>
+                            
+                            <ram:DueDateDateTime>
+                                <udt:DateTimeString>20210316</udt:DateTimeString>
+                            </ram:DueDateDateTime>
+                        </ram:SpecifiedTradePaymentTerms>
+
+                        <ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+                            <ram:LineTotalAmount currencyID="EUR">142.50</ram:LineTotalAmount>
+                            <ram:TaxBasisTotalAmount currencyID="EUR">142.50</ram:TaxBasisTotalAmount>
+                            <ram:TaxTotalAmount currencyID="EUR">27.08</ram:TaxTotalAmount>
+                            <ram:GrandTotalAmount currencyID="EUR">169.58</ram:GrandTotalAmount>
+                            <ram:TotalPrepaidAmount currencyID="EUR">0.00</ram:TotalPrepaidAmount>
+                            <ram:DuePayableAmount currencyID="EUR">169.58</ram:DuePayableAmount>
+                        </ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+                    </ram:ApplicableHeaderTradeSettlement>
+                </rsm:SupplyChainTradeTransaction>
+            </rsm:CrossIndustryInvoice>
+        
